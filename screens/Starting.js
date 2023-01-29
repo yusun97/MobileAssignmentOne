@@ -2,11 +2,13 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import StartingCard from "../components/StartingCard";
 import Header from "../components/Header";
-import Input from "../components/Input";
-
-// two Texts, two TextInputs and two Buttons (Reset and Sign up).
+import { useState } from "react";
+import Input from "../components/EmailInput";
+import Card from "../components/Card";
 
 export default function Starting() {
+  const [confirmVisible, confirmVisibleHandle] = useState(false);
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -18,8 +20,9 @@ export default function Starting() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    marginTop: 50,
     alignItems: "center",
-    justifyContent: "center",
     borderWidth: 0,
   },
 });

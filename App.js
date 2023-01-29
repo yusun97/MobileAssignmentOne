@@ -8,9 +8,12 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      {/* <Starting /> */}
-      {/* <Confirm /> */}
-      <Finish />
+
+      <View>
+        <Starting />
+        {/* <Confirm /> */}
+        {/* <Finish /> */}
+      </View>
     </View>
   );
 }

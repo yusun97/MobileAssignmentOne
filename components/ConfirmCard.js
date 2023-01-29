@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { View, TextInput, StyleSheet, Button, Text } from "react-native";
-import Input from "./Input";
+import { View, TextInput, StyleSheet, Button, Text, Modal } from "react-native";
+import Input from "./EmailInput";
 import Buttons from "./Buttons";
 
 export default function ConfirmCard() {
@@ -18,8 +18,12 @@ export default function ConfirmCard() {
 
 const styles = StyleSheet.create({
   card: {
+    borderWidth: 0,
     padding: 20,
+    margin: 10,
     backgroundColor: "darkgray",
+    justifyContent: "center",
+    alignItems: "center",
   },
   content: {
     color: "darkslateblue",
