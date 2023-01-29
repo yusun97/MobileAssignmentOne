@@ -6,21 +6,28 @@ import Input from "./Input";
 import Buttons from "./Buttons";
 import ComfirmCard from "../components/ConfirmCard";
 
-export default function Card() {
+export default function StartingCard({
+  startingScreenSetConfirm,
+  startingScreenSetEmail,
+  startingScreenSetPhone,
+}) {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPhone, setEnteredPhone] = useState("");
-  // const [confirmVisible, setConfirmVisible] = useState();
+  const [confirmVisible, setConfirmVisible] = useState(false);
 
-  // function confirmVisibleHandle() {
-  //   setConfirmVisible(true);
-  // }
+  function confirmVisibleHandle(changedConfirmVisible) {
+    setConfirmVisible(changedConfirmVisible);
+    startingScreenSetConfirm(changedConfirmVisible);
+  }
 
   function onEmailEntered(changedEmail) {
     setEnteredEmail(changedEmail);
+    startingScreenSetEmail(changedEmail);
   }
 
   function onPhoneEntered(changedPhone) {
     setEnteredPhone(changedPhone);
+    startingScreenSetPhone(changedPhone);
   }
 
   return (
@@ -28,7 +35,11 @@ export default function Card() {
       <Input
         sendChangedEmail={onEmailEntered}
         sendChangedPhone={onPhoneEntered}
+        sendConfirmIsVisible={confirmVisibleHandle}
       />
+      <Text>parentEmail: {enteredEmail}</Text>
+      <Text>parentPhone:{enteredPhone}</Text>
+      <Text>parentConfirm: {String(confirmVisible)}</Text>
     </View>
   );
 }

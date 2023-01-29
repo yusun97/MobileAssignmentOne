@@ -3,15 +3,18 @@ import { View, TextInput, StyleSheet, Button, Text, Modal } from "react-native";
 import Input from "./EmailInput";
 import Buttons from "./Buttons";
 
-export default function ConfirmCard() {
+export default function ConfirmCard({ email, phone,confirmPressed }) {
   return (
     <View style={styles.card}>
       <Text style={styles.content}>You have entered: </Text>
-      <Text style={styles.content}>xxxEmail and xxxxNumber</Text>
+      <Text style={styles.content}>
+        {email} and {phone}
+      </Text>
       <Text style={styles.content}>Please confirm they are correct.</Text>
-      <Buttons buttonName={"Go Back"} />
-      <Buttons buttonName={"Confirm"} />
-      <Buttons buttonName={"Finish Later"} />
+      {/* <Buttons buttonName={"Go Back"} /> */}
+      <Button title="Go Back" />
+      <Button title="Confirm" onPress={confirmPressed}/>
+      <Button title="Finish Later" />
     </View>
   );
 }

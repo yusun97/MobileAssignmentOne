@@ -2,19 +2,40 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Modal } from "react-native";
 import ConfirmCard from "../components/ConfirmCard";
 import Card from "../components/StartingCard";
+import { useState } from "react";
+import Finish from "./Finish";
+import { LinearGradient } from "expo-linear-gradient";
 
-export default function Confirm() {
+export default function Confirm({
+  StartingSetconfirmVisible,
+  enteredEmail,
+  enteredPhone,
+}) {
+  const [confirmVisible, setConfirmVisible] = useState(false);
+
+  function confirmDisappear() {
+    setConfirmVisible(false);
+  }
+
+  function confirmShow() {
+    setConfirmVisible(true);
+  }
+
   return (
-    <Modal visible={true} style={styles.container}>
+    <Modal visible={StartingSetconfirmVisible}>
       <StatusBar style="auto" />
-      <View style={styles.container}>
-        <ConfirmCard />
-      </View>
+      <LinearGradient
+        style={styles.container}
+        colors={["lightskyblue", "darkslateblue"]}
+      >
+        <ConfirmCard
+          email={enteredEmail}
+          phone={enteredPhone}
+          confirmPressed={confirmDisappear}
+        />
+        {/* <Finish /> */}
+      </LinearGradient>
     </Modal>
-    // <View style={styles.container}>
-    //   <StatusBar style="auto" />
-    //   <ConfirmCard />
-    // </View>
   );
 }
 
@@ -23,7 +44,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 10,
-    backgroundColor: "lightblue",
+    borderWidth: 0,
   },
 });
