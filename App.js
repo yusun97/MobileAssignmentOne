@@ -4,7 +4,6 @@ import Starting from "./screens/Starting";
 import Confirm from "./screens/Confirm";
 import Finish from "./screens/Finish";
 import { LinearGradient } from "expo-linear-gradient";
-import Card from "./components/Card";
 import { useState } from "react";
 
 export default function App() {
@@ -49,6 +48,9 @@ export default function App() {
 
   function onStartAgain() {
     setScreenShown("starting");
+    setEnteredEmail("");
+    setEnteredPhone("");
+    setFinishType("");
   }
 
   return (
@@ -91,7 +93,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "transparent",
+    // backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "center",
     borderWidth: 0,

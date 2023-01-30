@@ -54,6 +54,7 @@ export default function Input({
         style={styles.input}
         onChangeText={changePhoneHandle}
       />
+      {/* <PhoneErrorNotice/> */}
       {/* <PhoneErrorNotice enteredPhone={phone} /> */}
       <Text style={styles.error}>phoneError</Text>
 
