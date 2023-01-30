@@ -56,7 +56,7 @@ export default function Input({
       />
       {/* <PhoneErrorNotice/> */}
       {/* <PhoneErrorNotice enteredPhone={phone} /> */}
-      <Text style={styles.error}>phoneError</Text>
+      <Text style={styles.error}>phone error</Text>
 
       <View style={styles.buttonContain}>
         <Buttons buttonName={"Reset"} action={resetHandle} />
