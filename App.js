@@ -14,17 +14,9 @@ export default function App() {
     >
       <StatusBar style="auto" />
 
-      {/* <Starting /> */}
+      <Starting />
       {/* <Confirm /> */}
-      {/* <Finish /> */}
-
-      <Card>
-        <Text>this is a new task </Text>
-      </Card>
-
-      {/* <Card>
-        {/* <Text>this is a new task</Text> */}
-      {/* </Card> */}
+      {/* <Finish type="no" /> */}
     </LinearGradient>
   );
 }
@@ -37,7 +29,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderWidth: 0,
   },
-  // background: {
-  //   color: "red",
-  // },
+  content: {
+    color: "darkslateblue",
+    fontSize: 20,
+  },
 });

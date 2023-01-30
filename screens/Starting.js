@@ -1,44 +1,58 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import StartingCard from "../components/StartingCard";
+import { StyleSheet, Text, View, TextInput } from "react-native";
 import Header from "../components/Header";
 import { useState } from "react";
-import Input from "../components/EmailInput";
+import Input from "../components/Input";
 import Card from "../components/Card";
 import Confirm from "./Confirm";
 
 export default function Starting() {
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPhone, setEnteredPhone] = useState("");
   const [confirmVisible, setConfirmVisible] = useState(false);
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-
-  function changeEmailHandle(changedEmail) {
-    setEmail(changedEmail);
-  }
-
-  function changePhoneHandle(changedPhone) {
-    setPhone(changedPhone);
-  }
 
   function confirmVisibleHandle(changedConfirmVisible) {
     setConfirmVisible(changedConfirmVisible);
+  }
+
+  function onEmailEntered(changedEmail) {
+    setEnteredEmail(changedEmail);
+  }
+
+  function onPhoneEntered(changedPhone) {
+    setEnteredPhone(changedPhone);
+  }
+
+  function onGoBack() {
+    setConfirmVisible(false);
+  }
+
+  function onConfirm() {
+    setConfirmVisible(false);
   }
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       <Header headerEntered={"Sign Up"} />
-      <StartingCard
-        startingScreenSetConfirm={confirmVisibleHandle}
-        startingScreenSetEmail={changeEmailHandle}
-        startingScreenSetPhone={changePhoneHandle}
-      />
+      <Card>
+        <Input
+          sendChangedEmail={onEmailEntered}
+          sendChangedPhone={onPhoneEntered}
+          sendConfirmVisible={confirmVisibleHandle}
+        />
+        <Text>parentEmail: {enteredEmail}</Text>
+        <Text>parentPhone:{enteredPhone}</Text>
+        <Text>parentConfirm: {String(confirmVisible)}</Text>
+      </Card>
+
       <Confirm
-        StartingSetconfirmVisible={confirmVisible}
-        enteredEmail={email}
-        enteredPhone={phone}
+        email={enteredEmail}
+        phone={enteredPhone}
+        isVisible={confirmVisible}
+        goBackPressed={onGoBack}
+        confirmPressed={onConfirm}
       />
-      <Text>starting screen {String(confirmVisible)}</Text>
     </View>
   );
 }
@@ -46,7 +60,7 @@ export default function Starting() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 50,
+    marginTop: 60,
     alignItems: "center",
     borderWidth: 0,
   },

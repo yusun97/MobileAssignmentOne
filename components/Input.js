@@ -1,22 +1,15 @@
 import { useState } from "react";
 import { View, TextInput, StyleSheet, Button, Modal, Text } from "react-native";
+import Buttons from "./Buttons";
+import PhoneErrorNotice from "./PhoneErrorNoice";
 
 export default function Input({
   sendChangedEmail,
   sendChangedPhone,
-  sendConfirmIsVisible,
+  sendConfirmVisible,
 }) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [phoneError, setPhoneError] = useState("");
-  const [emailValid, setEmailValid] = useState(false);
-  const [phoneValid, setPhoneValid] = useState(false);
-  //   const [confirmVisible, setConfirmVisible] = useState(false);
-  //   let emailValidTest = false;
-  //   let phoneValidTest = false;
-  //   let emailErrorTest = "original";
-  //   let phoneErrorTest = "";
 
   function changeEmailHandle(changedEmail) {
     setEmail(changedEmail);
@@ -26,55 +19,15 @@ export default function Input({
     setPhone(changedPhone);
   }
 
-  function emailValidHandle() {
-    if (email.includes("@") && email.includes(".")) {
-      setEmailValid(true);
-      setEmailError("");
-      //   emailValidTest = true;
-    } else {
-      setEmailValid(false);
-      setEmailError("Please enter a valid email address");
-      //   emailValidTest = false;
-      //   emailErrorTest = "Please enter a valid email address";
-    }
-  }
-
-  function phoneValidHandle() {
-    if (phone.length === 10 && !isNaN(phone)) {
-      setPhoneValid(true);
-      setPhoneError("");
-      //   phoneValidTest = true;
-    } else {
-      setPhoneValid(false);
-      setPhoneError("Please enter a valid phone number");
-    }
-  }
-
-  function validation() {
-    // emailValidHandle(); //valid the email
-    // phoneValidHandle(); //valid the phone number
-    // console.log("email:" + emailValid);
-    // console.log("phone:" + phoneValid);
-    // when both valid
-    // if (emailValid && phoneValid) {
-    //   sendInformation();
-    //     setConfirmVisible(true);
-    //   sendConfirmIsVisible(true);
-    // }
-    sendInformation();
-    sendConfirmIsVisible(true);
-  }
-
-  function sendInformation() {
-    sendChangedEmail(email);
-    sendChangedPhone(phone);
-  }
-
   function resetHandle() {
     setEmail("");
     setPhone("");
-    setEmailError("");
-    setPhoneError("");
+  }
+
+  function validation() {
+    sendChangedEmail(email);
+    sendChangedPhone(phone);
+    sendConfirmVisible(true);
   }
 
   return (
@@ -86,8 +39,7 @@ export default function Input({
         style={styles.input}
         onChangeText={changeEmailHandle}
       />
-      <Text style={styles.error}>{emailError}</Text>
-      {/* {console.log("return console log:" + emailErrorTest)} */}
+      <Text style={styles.error}>emailError</Text>
 
       <Text style={styles.contentTitle}>Phone Number</Text>
       <TextInput
@@ -96,11 +48,15 @@ export default function Input({
         style={styles.input}
         onChangeText={changePhoneHandle}
       />
-      <Text style={styles.error}>{phoneError}</Text>
+
+      {/* <Text style={styles.error}>phoneError</Text> */}
+      <PhoneErrorNotice enteredPhone={phone} />
 
       <View style={styles.buttonContain}>
-        <Button title="Reset" onPress={resetHandle} />
-        <Button title="Sign Up" onPress={validation} />
+        {/* <Button title="Reset" onPress={resetHandle} /> */}
+        {/* <Button title="Sign Up" onPress={validation} /> */}
+        <Buttons buttonName={"Reset"} actionNeeded={resetHandle} />
+        <Buttons buttonName={"Sign Up"} actionNeeded={validation} />
       </View>
     </View>
   );
