@@ -25,9 +25,15 @@ export default function Input({
   }
 
   function validation() {
+    // let regEmail =
+    //   /^[a-zA-Z\d]+([-_\.][a-zA-Z\d]+)*@[a-zA-Z\d]+\.[a-zA-Z\d]{2,4}$/;
+    // if (regEmail.test(email) && phone.length === 10 && !isNaN(phone)) {
     sendChangedEmail(email);
     sendChangedPhone(phone);
     sendConfirmVisible(true);
+    // } else {
+    //   console.log("The information is not valid");
+    // }
   }
 
   return (
@@ -48,9 +54,8 @@ export default function Input({
         style={styles.input}
         onChangeText={changePhoneHandle}
       />
-
-      {/* <Text style={styles.error}>phoneError</Text> */}
-      <PhoneErrorNotice enteredPhone={phone} />
+      {/* <PhoneErrorNotice enteredPhone={phone} /> */}
+      <Text style={styles.error}>phoneError</Text>
 
       <View style={styles.buttonContain}>
         <Buttons buttonName={"Reset"} action={resetHandle} />
