@@ -31,6 +31,10 @@ export default function Starting() {
     setConfirmVisible(false);
   }
 
+  function onFinishLater() {
+    setConfirmVisible(false);
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -52,6 +56,7 @@ export default function Starting() {
         isVisible={confirmVisible}
         goBackPressed={onGoBack}
         confirmPressed={onConfirm}
+        finishLaterPressed={onFinishLater}
       />
     </View>
   );

@@ -12,13 +12,8 @@ export default function Confirm({
   isVisible,
   goBackPressed,
   confirmPressed,
+  finishLaterPressed,
 }) {
-  // const [confirmVisible, setConfirmVisible] = useState(false);
-
-  // function confirmVisibleHandle(changedConfirmVisible) {
-  //   setConfirmVisible(changedConfirmVisible);
-  // }
-
   return (
     <Modal visible={isVisible}>
       <StatusBar style="auto" />
@@ -34,7 +29,7 @@ export default function Confirm({
           <Text style={styles.content}>Please confirm they are correct.</Text>
           <Buttons buttonName="Go Back" actionNeeded={goBackPressed} />
           <Buttons buttonName="Confirm" actionNeeded={confirmPressed} />
-          <Buttons buttonName="Finish Later" />
+          <Buttons buttonName="Finish Later" actionNedd={finishLaterPressed} />
         </Card>
       </LinearGradient>
     </Modal>
