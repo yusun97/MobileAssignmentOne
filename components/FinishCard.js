@@ -2,7 +2,9 @@ import { useState } from "react";
 import { View, TextInput, StyleSheet, Button, Text, Image } from "react-native";
 import Card from "../components/Card";
 
-export default function FinishCard({ cardType }) {
+export default function FinishCard({ cardType, enteredPhone }) {
+  let num = enteredPhone.charAt(enteredPhone.length - 1);
+  // console.log(num);
   if (cardType === "yes") {
     return (
       <Card>

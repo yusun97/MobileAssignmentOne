@@ -53,10 +53,8 @@ export default function Input({
       <PhoneErrorNotice enteredPhone={phone} />
 
       <View style={styles.buttonContain}>
-        {/* <Button title="Reset" onPress={resetHandle} /> */}
-        {/* <Button title="Sign Up" onPress={validation} /> */}
-        <Buttons buttonName={"Reset"} actionNeeded={resetHandle} />
-        <Buttons buttonName={"Sign Up"} actionNeeded={validation} />
+        <Buttons buttonName={"Reset"} action={resetHandle} />
+        <Buttons buttonName={"Sign Up"} action={validation} />
       </View>
     </View>
   );

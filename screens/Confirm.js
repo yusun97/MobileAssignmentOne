@@ -27,9 +27,9 @@ export default function Confirm({
             {email} and {phone}
           </Text>
           <Text style={styles.content}>Please confirm they are correct.</Text>
-          <Buttons buttonName="Go Back" actionNeeded={goBackPressed} />
-          <Buttons buttonName="Confirm" actionNeeded={confirmPressed} />
-          <Buttons buttonName="Finish Later" actionNedd={finishLaterPressed} />
+          <Buttons buttonName="Go Back" action={goBackPressed} />
+          <Buttons buttonName="Confirm" action={confirmPressed} />
+          <Buttons buttonName="Finish Later" action={finishLaterPressed} />
         </Card>
       </LinearGradient>
     </Modal>

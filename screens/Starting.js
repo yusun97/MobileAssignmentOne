@@ -5,11 +5,14 @@ import { useState } from "react";
 import Input from "../components/Input";
 import Card from "../components/Card";
 import Confirm from "./Confirm";
+import Finish from "./Finish";
 
 export default function Starting() {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPhone, setEnteredPhone] = useState("");
   const [confirmVisible, setConfirmVisible] = useState(false);
+  const [finishVisible, setFinishVisible] = useState(false);
+  const [finishType, setFinishType] = useState("");
 
   function confirmVisibleHandle(changedConfirmVisible) {
     setConfirmVisible(changedConfirmVisible);
@@ -29,10 +32,25 @@ export default function Starting() {
 
   function onConfirm() {
     setConfirmVisible(false);
+    setFinishVisible(true);
+    setFinishType("yes");
   }
 
   function onFinishLater() {
+    // console.log("finish later pressed");
     setConfirmVisible(false);
+    setFinishVisible(true);
+    setFinishType("no");
+  }
+
+  function onStartAgain() {
+    setFinishVisible(false);
+    // setEnteredEmail("");
+    // setEnteredPhone("");
+  }
+
+  function resetHandle(){
+    
   }
 
   return (
@@ -57,6 +75,13 @@ export default function Starting() {
         goBackPressed={onGoBack}
         confirmPressed={onConfirm}
         finishLaterPressed={onFinishLater}
+      />
+
+      <Finish
+        phone={enteredPhone}
+        type={finishType}
+        isVisible={finishVisible}
+        startAgainPressed={onStartAgain}
       />
     </View>
   );
