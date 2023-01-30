@@ -24,15 +24,59 @@ export default function Input({
     setPhone("");
   }
 
-  function validation() {
+  // function validation() {
+  // let regEmail =
+  //   /^[a-zA-Z\d]+([-_\.][a-zA-Z\d]+)*@[a-zA-Z\d]+\.[a-zA-Z\d]{2,4}$/;
+  // if (regEmail.test(email) && phone.length === 10 && !isNaN(phone)) {
+  // sendChangedEmail(email);
+  // sendChangedPhone(phone);
+  // sendConfirmVisible(true);
+  // } else {
+  //   console.log("The information is not valid");
+  // }
+  // }
+
+  // let emailIsValid = true;
+  // let phoneIsValid = true;
+  let emailErrorShown;
+  let phoneErrorShown;
+  function validate() {
+    emailErrorShown = false;
+    phoneErrorShown = false;
+
+    if (email.length < 3) {
+      emailErrorShown = true;
+    }
+
+    if (phone.length < 3) {
+      phoneErrorShown = true;
+    }
+
+    console.log("emailErrorShown: " + emailErrorShown);
+    console.log("phoneErrorShown: " + phoneErrorShown);
+
+    if (phoneErrorShown == false && emailErrorShown == false) {
+      sendChangedEmail(email);
+      sendChangedPhone(phone);
+      sendConfirmVisible(true);
+    }
     // let regEmail =
     //   /^[a-zA-Z\d]+([-_\.][a-zA-Z\d]+)*@[a-zA-Z\d]+\.[a-zA-Z\d]{2,4}$/;
-    // if (regEmail.test(email) && phone.length === 10 && !isNaN(phone)) {
-    sendChangedEmail(email);
-    sendChangedPhone(phone);
-    sendConfirmVisible(true);
-    // } else {
-    //   console.log("The information is not valid");
+    // if (!regEmail.test(email)) {
+    //   emailIsValid = false;
+    // }
+    // if (email.length < 3) {
+    //   emailIsValid = false;
+    // }
+    // if (phone.length < 3 || isNaN(phone)) {
+    //   phoneIsValid = false;
+    // }
+    // console.log("emailIsValid " + emailIsValid);
+    // console.log("phoneIsValid " + phoneIsValid);
+    // if (phoneIsValid && emailIsValid) {
+    //   sendChangedEmail(email);
+    //   sendChangedPhone(phone);
+    //   sendConfirmVisible(true);
     // }
   }
 
@@ -45,7 +89,9 @@ export default function Input({
         style={styles.input}
         onChangeText={changeEmailHandle}
       />
-      <Text style={styles.error}>emailError</Text>
+      {emailErrorShown && (
+        <Text style={styles.error}>Please enter a valid email</Text>
+      )}
 
       <Text style={styles.contentTitle}>Phone Number</Text>
       <TextInput
@@ -54,13 +100,13 @@ export default function Input({
         style={styles.input}
         onChangeText={changePhoneHandle}
       />
-      {/* <PhoneErrorNotice/> */}
-      {/* <PhoneErrorNotice enteredPhone={phone} /> */}
-      <Text style={styles.error}>phone error</Text>
+      {phoneErrorShown && (
+        <Text style={styles.error}>Please enter a valid phone number</Text>
+      )}
 
       <View style={styles.buttonContain}>
         <Buttons buttonName={"Reset"} action={resetHandle} />
-        <Buttons buttonName={"Sign Up"} action={validation} />
+        <Buttons buttonName={"Sign Up"} action={validate} />
       </View>
     </View>
   );
