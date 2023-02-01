@@ -5,6 +5,7 @@ import Confirm from "./screens/Confirm";
 import Finish from "./screens/Finish";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
+import { commonStyles } from "./components/commonStyles ";
 
 export default function App() {
   const [screenShown, setScreenShown] = useState("starting");
@@ -84,8 +85,8 @@ export default function App() {
           startAgainPressed={onStartAgain}
         />
       )}
-      <Text>from app.js {enteredEmail}</Text>
-      <Text>from app.js {enteredPhone}</Text>
+      <Text>from app.js!!! {enteredEmail}</Text>
+      <Text>from app.js!!! {enteredPhone}</Text>
     </LinearGradient>
   );
 }
@@ -93,13 +94,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 0,
-  },
-  content: {
-    color: "darkslateblue",
-    fontSize: 20,
   },
 });

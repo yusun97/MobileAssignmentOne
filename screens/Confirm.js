@@ -5,6 +5,7 @@ import { useState } from "react";
 import Finish from "./Finish";
 import { LinearGradient } from "expo-linear-gradient";
 import Buttons from "../components/Buttons";
+import { commonStyles } from "../components/commonStyles ";
 
 export default function Confirm({
   email,
@@ -22,11 +23,13 @@ export default function Confirm({
         colors={["lightskyblue", "darkslateblue"]}
       >
         <Card>
-          <Text style={styles.content}>You have entered: </Text>
-          <Text style={styles.content}>
+          <Text style={commonStyles.content}>You have entered: </Text>
+          <Text style={commonStyles.content}>
             {email} and {phone}
           </Text>
-          <Text style={styles.content}>Please confirm they are correct.</Text>
+          <Text style={commonStyles.content}>
+            Please confirm they are correct.
+          </Text>
           <Buttons buttonName="Go Back" action={goBackPressed} />
           <Buttons buttonName="Confirm" action={confirmPressed} />
           <Buttons buttonName="Finish Later" action={finishLaterPressed} />
@@ -41,10 +44,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 0,
-  },
-  content: {
-    color: "darkslateblue",
-    fontSize: 20,
+    // borderWidth: 0,
   },
 });

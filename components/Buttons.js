@@ -8,7 +8,7 @@ export default function Buttons({ buttonName, action }) {
   }
 
   return (
-    <View>
+    <View style={{ margin: 10 }}>
       <Button color={colorEnter} title={buttonName} onPress={action} />
     </View>
   );

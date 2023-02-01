@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, Modal } from "react-native";
 import Card from "../components/Card";
 import Buttons from "../components/Buttons";
+import { commonStyles } from "../components/commonStyles ";
 
 export default function Finish({ type, phone, startAgainPressed }) {
   let num = phone.charAt(phone.length - 1);
@@ -10,11 +11,11 @@ export default function Finish({ type, phone, startAgainPressed }) {
       <StatusBar style="auto" />
       {type === "yes" && (
         <Card>
-          <Text style={styles.content}>
+          <Text style={commonStyles.content}>
             Your phone number is {phone}. The last digit of you phone number is{" "}
             {num}.
           </Text>
-          <Text style={styles.content}>
+          <Text style={commonStyles.content}>
             Thank you for signing up. Here's a picture for you(based on you last
             digit of your phone number)
           </Text>
@@ -44,11 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     marginTop: 80,
-    borderWidth: 0,
-  },
-  content: {
-    color: "darkslateblue",
-    fontSize: 20,
+    // borderWidth: 0,
   },
   picture: {
     height: 50,

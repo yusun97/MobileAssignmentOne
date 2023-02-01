@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { View, TextInput, StyleSheet, Button, Modal, Text } from "react-native";
 import Buttons from "./Buttons";
-import PhoneErrorNotice from "./PhoneErrorNoice";
 
 export default function Input({
   sendChangedEmail,
@@ -19,43 +18,26 @@ export default function Input({
     setPhone(changedPhone);
   }
 
-  function resetHandle() {
-    setEmail("");
-    setPhone("");
-  }
-
-  // function validation() {
-  // let regEmail =
-  //   /^[a-zA-Z\d]+([-_\.][a-zA-Z\d]+)*@[a-zA-Z\d]+\.[a-zA-Z\d]{2,4}$/;
-  // if (regEmail.test(email) && phone.length === 10 && !isNaN(phone)) {
-  // sendChangedEmail(email);
-  // sendChangedPhone(phone);
-  // sendConfirmVisible(true);
-  // } else {
-  //   console.log("The information is not valid");
-  // }
-  // }
-
-  // let emailIsValid = true;
-  // let phoneIsValid = true;
-  let emailErrorShown;
-  let phoneErrorShown;
+  const [emailErrorShown, setEmailErrorShown] = useState(false);
+  const [phoneErrorShown, setPhoneErrorShown] = useState(false);
   function validate() {
-    emailErrorShown = false;
-    phoneErrorShown = false;
+    setEmailErrorShown(false);
+    setPhoneErrorShown(false);
+
+    let emailValid = true;
+    let phoneValid = true;
 
     if (email.length < 3) {
-      emailErrorShown = true;
+      setEmailErrorShown(true);
+      emailValid = false;
     }
 
     if (phone.length < 3) {
-      phoneErrorShown = true;
+      setPhoneErrorShown(true);
+      phoneValid = false;
     }
 
-    console.log("emailErrorShown: " + emailErrorShown);
-    console.log("phoneErrorShown: " + phoneErrorShown);
-
-    if (phoneErrorShown == false && emailErrorShown == false) {
+    if (phoneValid && emailValid) {
       sendChangedEmail(email);
       sendChangedPhone(phone);
       sendConfirmVisible(true);
@@ -65,19 +47,13 @@ export default function Input({
     // if (!regEmail.test(email)) {
     //   emailIsValid = false;
     // }
-    // if (email.length < 3) {
-    //   emailIsValid = false;
-    // }
-    // if (phone.length < 3 || isNaN(phone)) {
-    //   phoneIsValid = false;
-    // }
-    // console.log("emailIsValid " + emailIsValid);
-    // console.log("phoneIsValid " + phoneIsValid);
-    // if (phoneIsValid && emailIsValid) {
-    //   sendChangedEmail(email);
-    //   sendChangedPhone(phone);
-    //   sendConfirmVisible(true);
-    // }
+  }
+
+  function resetHandle() {
+    setEmail("");
+    setPhone("");
+    setEmailErrorShown(false);
+    setPhoneErrorShown(false);
   }
 
   return (

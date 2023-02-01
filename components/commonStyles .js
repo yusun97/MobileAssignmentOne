@@ -1,9 +1,14 @@
 import { StyleSheet } from "react-native";
 
-export const styles = StyleSheet.create({
+export const commonStyles = StyleSheet.create({
   content: {
-    color: "red",
-    width: 200,
+    color: "darkslateblue",
     fontSize: 20,
+  },
+  colorUsed: {
+    color: "darkslateblue",
+  },
+  borderColorUsed: {
+    borderColor: "darkslateblue",
   },
 });

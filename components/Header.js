@@ -1,10 +1,19 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { commonStyles } from "./commonStyles ";
 
 export default function Header({ headerEntered }) {
   return (
     <View>
-      <Text style={styles.header}>{headerEntered}</Text>
+      <Text
+        style={[
+          styles.header,
+          commonStyles.colorUsed,
+          commonStyles.borderColorUsed,
+        ]}
+      >
+        {headerEntered}
+      </Text>
     </View>
   );
 }
@@ -12,10 +21,10 @@ export default function Header({ headerEntered }) {
 const styles = StyleSheet.create({
   header: {
     padding: 10,
-    color: "purple",
     borderWidth: 2,
-    borderColor: "purple",
     fontSize: 15,
-    fontWeight: "600",
+    fontWeight: "500",
+    marginTop: 40,
+    marginBottom: 10,
   },
 });
