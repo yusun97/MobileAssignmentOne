@@ -28,12 +28,18 @@ export default function Input({
     let emailValid = true;
     let phoneValid = true;
 
-    if (email.length < 3) {
+    let regEmail =
+      /^[a-zA-Z\d]+([-_\.][a-zA-Z\d]+)*@[a-zA-Z\d]+\.[a-zA-Z\d]{2,4}$/;
+    // if (!regEmail.test(email)) {
+    //   emailIsValid = false;
+    // }
+
+    if (!regEmail.test(email)) {
       setEmailErrorShown(true);
       emailValid = false;
     }
 
-    if (phone.length < 3) {
+    if (phone.length !== 10 || isNaN(phone)) {
       setPhoneErrorShown(true);
       phoneValid = false;
     }
@@ -43,11 +49,6 @@ export default function Input({
       sendChangedPhone(phone);
       sendConfirmVisible(true);
     }
-    // let regEmail =
-    //   /^[a-zA-Z\d]+([-_\.][a-zA-Z\d]+)*@[a-zA-Z\d]+\.[a-zA-Z\d]{2,4}$/;
-    // if (!regEmail.test(email)) {
-    //   emailIsValid = false;
-    // }
   }
 
   function resetHandle() {
