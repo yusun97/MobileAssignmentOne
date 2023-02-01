@@ -19,7 +19,7 @@ export default function Confirm({
     <Modal visible={isVisible}>
       <StatusBar style="auto" />
       <LinearGradient
-        style={styles.container}
+        style={commonStyles.centerContainer}
         colors={["lightskyblue", "darkslateblue"]}
       >
         <Card>
@@ -38,12 +38,3 @@ export default function Confirm({
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    // borderWidth: 0,
-  },
-});

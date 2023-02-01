@@ -11,4 +11,16 @@ export const commonStyles = StyleSheet.create({
   borderColorUsed: {
     borderColor: "darkslateblue",
   },
+  borderBottomColorUsed: {
+    borderBottomColor: "darkslateblue",
+  },
+  genericContainer: {
+    flex: 1,
+    alignItems: "center",
+  },
+  centerContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { View, TextInput, StyleSheet, Button, Modal, Text } from "react-native";
 import Buttons from "./Buttons";
+import { commonStyles } from "./commonStyles ";
 
 export default function Input({
   sendChangedEmail,
@@ -58,22 +59,40 @@ export default function Input({
 
   return (
     <View>
-      <Text style={styles.contentTitle}>Email Address</Text>
+      <Text style={[commonStyles.content, styles.contentTitle]}>
+        Email Address
+      </Text>
       <TextInput
         value={email}
         textAlign={"center"}
-        style={styles.input}
+        style={[
+          commonStyles.borderBottomColorUsed,
+          commonStyles.colorUsed,
+          styles.input,
+        ]}
         onChangeText={changeEmailHandle}
       />
       {emailErrorShown && (
         <Text style={styles.error}>Please enter a valid email</Text>
       )}
 
-      <Text style={styles.contentTitle}>Phone Number</Text>
+      <Text
+        style={[
+          commonStyles.content,
+          commonStyles.colorUsed,
+          styles.contentTitle,
+        ]}
+      >
+        Phone Number
+      </Text>
       <TextInput
         value={phone}
         textAlign={"center"}
-        style={styles.input}
+        style={[
+          commonStyles.borderBottomColorUsed,
+          commonStyles.colorUsed,
+          styles.input,
+        ]}
         onChangeText={changePhoneHandle}
       />
       {phoneErrorShown && (
@@ -90,19 +109,17 @@ export default function Input({
 
 const styles = StyleSheet.create({
   contentTitle: {
-    color: "darkslateblue",
     width: 200,
-    fontSize: 20,
+    padding: 10,
   },
   input: {
     fontWeight: "bold",
-    color: "darkslateblue",
     width: 200,
     borderBottomWidth: 2,
     fontSize: 15,
     justifyContent: "center",
-    borderBottomColor: "darkslateblue",
     padding: 10,
+    marginBottom: 25,
   },
   error: {
     fontSize: 10,

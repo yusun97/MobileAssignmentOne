@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { useState } from "react";
 import Input from "../components/Input";
 import Card from "../components/Card";
+import { commonStyles } from "../components/commonStyles ";
 
 export default function Starting({
   sendChangedEmailToApp,
@@ -12,7 +13,7 @@ export default function Starting({
   sendScreenShownToApp,
 }) {
   return (
-    <View style={styles.container}>
+    <View style={commonStyles.genericContainer}>
       <StatusBar style="auto" />
       <Header headerEntered={"Sign Up"} />
       <Card>
@@ -26,10 +27,3 @@ export default function Starting({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-  },
-});

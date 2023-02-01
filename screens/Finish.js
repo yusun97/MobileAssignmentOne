@@ -7,7 +7,7 @@ import { commonStyles } from "../components/commonStyles ";
 export default function Finish({ type, phone, startAgainPressed }) {
   let num = phone.charAt(phone.length - 1);
   return (
-    <View style={styles.container}>
+    <View style={[commonStyles.genericContainer, styles.container]}>
       <StatusBar style="auto" />
       {type === "yes" && (
         <Card>
@@ -42,10 +42,7 @@ export default function Finish({ type, phone, startAgainPressed }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    marginTop: 80,
-    // borderWidth: 0,
+    marginTop: 60,
   },
   picture: {
     height: 50,
