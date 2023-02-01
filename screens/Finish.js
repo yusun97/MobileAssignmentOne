@@ -6,25 +6,17 @@ import { commonStyles } from "../components/commonStyles ";
 
 export default function Finish({ type, phone, startAgainPressed }) {
   let num = phone.charAt(phone.length - 1);
+  let link = "https://picsum.photos/id/" + num + "/100/100";
   return (
     <View style={[commonStyles.genericContainer, styles.container]}>
       <StatusBar style="auto" />
       {type === "yes" && (
         <Card>
           <Text style={commonStyles.content}>
-            Your phone number is {phone}. The last digit of you phone number is{" "}
-            {num}.
-          </Text>
-          <Text style={commonStyles.content}>
             Thank you for signing up. Here's a picture for you(based on you last
             digit of your phone number)
           </Text>
-          <Image
-            source={{
-              uri: "https://picsum.photos/id/4/100/100",
-            }}
-            style={styles.picture}
-          />
+          <Image source={{ uri: link }} style={styles.picture} />
         </Card>
       )}
 
