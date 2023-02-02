@@ -2,10 +2,10 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Modal, Button } from "react-native";
 import Card from "../components/Card";
 import { useState } from "react";
-import Finish from "./Finish";
 import { LinearGradient } from "expo-linear-gradient";
 import Buttons from "../components/Buttons";
 import { commonStyles } from "../components/commonStyles ";
+import LinearGradientBackground from "../components/LinearGradientBackground";
 
 export default function Confirm({
   email,
@@ -18,10 +18,7 @@ export default function Confirm({
   return (
     <Modal visible={isVisible}>
       <StatusBar style="auto" />
-      <LinearGradient
-        style={commonStyles.centerContainer}
-        colors={["lightskyblue", "darkslateblue"]}
-      >
+      <LinearGradientBackground>
         <Card>
           <Text style={commonStyles.content}>You have entered: </Text>
           <Text style={commonStyles.content}>
@@ -34,7 +31,7 @@ export default function Confirm({
           <Buttons buttonName="Confirm" action={confirmPressed} />
           <Buttons buttonName="Finish Later" action={finishLaterPressed} />
         </Card>
-      </LinearGradient>
+      </LinearGradientBackground>
     </Modal>
   );
 }

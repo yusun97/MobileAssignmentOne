@@ -6,6 +6,7 @@ import Finish from "./screens/Finish";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import { commonStyles } from "./components/commonStyles ";
+import LinearGradientBackground from "./components/LinearGradientBackground";
 
 export default function App() {
   const [screenShown, setScreenShown] = useState("starting");
@@ -55,10 +56,7 @@ export default function App() {
   }
 
   return (
-    <LinearGradient
-      style={commonStyles.centerContainer}
-      colors={["lightskyblue", "darkslateblue"]}
-    >
+    <LinearGradientBackground>
       <StatusBar style="auto" />
       {screenShown === "starting" && (
         <Starting
@@ -85,6 +83,6 @@ export default function App() {
           startAgainPressed={onStartAgain}
         />
       )}
-    </LinearGradient>
+    </LinearGradientBackground>
   );
 }
