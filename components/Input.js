@@ -81,6 +81,8 @@ export default function Input({
           styles.contentTitle,
         ]}
       >
+        {"\n"}
+        {"\n"}
         Phone Number
       </Text>
       <TextInput
@@ -108,8 +110,8 @@ export default function Input({
 const styles = StyleSheet.create({
   contentTitle: {
     width: 200,
-    padding: 10,
-    marginTop: 15,
+    // padding: 10,
+    // marginTop: 15,
   },
   input: {
     fontWeight: "bold",
@@ -118,6 +120,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     justifyContent: "center",
     padding: 10,
+    // marginBottom: 20,
   },
   error: {
     fontSize: 12,
