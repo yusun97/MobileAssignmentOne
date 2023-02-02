@@ -14,6 +14,9 @@ export const commonStyles = StyleSheet.create({
   borderBottomColorUsed: {
     borderBottomColor: "darkslateblue",
   },
+  cardColorUsed: {
+    backgroundColor: "darkgray",
+  },
   genericContainer: {
     flex: 1,
     alignItems: "center",

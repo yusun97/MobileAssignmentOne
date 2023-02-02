@@ -85,8 +85,6 @@ export default function App() {
           startAgainPressed={onStartAgain}
         />
       )}
-      {/* <Text>from app.js!!! {enteredEmail}</Text>
-      <Text>from app.js!!! {enteredPhone}</Text> */}
     </LinearGradient>
   );
 }

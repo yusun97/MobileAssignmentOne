@@ -30,9 +30,6 @@ export default function Input({
 
     let regEmail =
       /^[a-zA-Z\d]+([-_\.][a-zA-Z\d]+)*@[a-zA-Z\d]+\.[a-zA-Z\d]{2,4}$/;
-    // if (!regEmail.test(email)) {
-    //   emailIsValid = false;
-    // }
 
     if (!regEmail.test(email)) {
       setEmailErrorShown(true);
@@ -112,6 +109,7 @@ const styles = StyleSheet.create({
   contentTitle: {
     width: 200,
     padding: 10,
+    marginTop: 15,
   },
   input: {
     fontWeight: "bold",
@@ -120,10 +118,9 @@ const styles = StyleSheet.create({
     fontSize: 15,
     justifyContent: "center",
     padding: 10,
-    marginBottom: 25,
   },
   error: {
-    fontSize: 10,
+    fontSize: 12,
     padding: 10,
   },
   buttonContain: {

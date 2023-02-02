@@ -1,7 +1,12 @@
 import { View, StyleSheet } from "react-native";
+import { commonStyles } from "./commonStyles ";
 
 export default function Card(props) {
-  return <View style={styles.card}>{props.children}</View>;
+  return (
+    <View style={[styles.card, commonStyles.cardColorUsed]}>
+      {props.children}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -16,7 +21,6 @@ const styles = StyleSheet.create({
     shadowColor: "rgba(96,96,96,1)",
     padding: 20,
     margin: 10,
-    backgroundColor: "darkgray",
     justifyContent: "center",
     alignItems: "center",
   },
