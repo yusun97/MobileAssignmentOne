@@ -1,4 +1,4 @@
-import { View, TextInput, StyleSheet, Button, Text } from "react-native";
+import { View, Button } from "react-native";
 
 export default function Buttons({ buttonName, action }) {
   let colorEnter = "blue";
