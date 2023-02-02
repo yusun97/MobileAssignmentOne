@@ -2,7 +2,7 @@ import { View, Button } from "react-native";
 
 export default function Buttons({ buttonName, action }) {
   let colorEnter = "blue";
-  if (buttonName === "Reset" || buttonName === "Go Back") {
+  if (buttonName === "Reset" || buttonName === "Go back") {
     colorEnter = "red";
   }
 
