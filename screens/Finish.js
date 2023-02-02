@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, Modal } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import Card from "../components/Card";
 import Buttons from "../components/Buttons";
 import { commonStyles } from "../components/commonStyles ";

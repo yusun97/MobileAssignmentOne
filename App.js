@@ -1,11 +1,8 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import Starting from "./screens/Starting";
 import Confirm from "./screens/Confirm";
 import Finish from "./screens/Finish";
-import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
-import { commonStyles } from "./components/commonStyles ";
 import LinearGradientBackground from "./components/LinearGradientBackground";
 
 export default function App() {
