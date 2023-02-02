@@ -18,14 +18,13 @@ export default function Confirm({
       <StatusBar style="auto" />
       <LinearGradientBackground>
         <Card>
-          <Text style={commonStyles.content}>You have entered: </Text>
           <Text style={commonStyles.content}>
-            {email} and {phone}
-          </Text>
-          <Text style={commonStyles.content}>
+            You have entered: {"\n"}
+            {email + "\n"}
+            {phone + "\n"}
             Please confirm they are correct.
           </Text>
-          <Buttons buttonName="Go Back" action={goBackPressed} />
+          <Buttons buttonName="Go back" action={goBackPressed} />
           <Buttons buttonName="Confirm" action={confirmPressed} />
           <Buttons buttonName="Finish Later" action={finishLaterPressed} />
         </Card>

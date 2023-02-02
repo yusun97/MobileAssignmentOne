@@ -121,7 +121,6 @@ const styles = StyleSheet.create({
   },
   error: {
     fontSize: 12,
-    // padding: 10,
   },
   buttonContain: {
     flexDirection: "row",
